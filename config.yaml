@@ -62,6 +62,7 @@ runspersub: 1
 userscripts:
     # Setup land use changes
     setup: ./scripts/pre.sh work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc
+    archive: ./scripts/run_um2netcdf.sh
 
 stacksize: unlimited
 
