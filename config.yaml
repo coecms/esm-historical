@@ -62,7 +62,7 @@ runspersub: 1
 userscripts:
     # Setup land use changes
     setup: ./scripts/pre.sh work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc
-    archive: ./scripts/run_um2netcdf.sh
+    archive: ./scripts/run_um2netcdf.sh -d # the d flag deletes the original UM data files after conversion - omit this to keep the original UM data files
 
 stacksize: unlimited
 

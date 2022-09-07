@@ -10,6 +10,18 @@ module unload python
 module load pythonlib/umfile_utils/access_cm2
 shopt -s extglob
 
+delete=false
+while getopts ":d" opt; do
+    case $opt in
+        d)
+            delete=true
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+echo $delete
+
 for INFILE in archive/*/atmosphere/*a.p{e,a}+([0-z])
 do
     OUTFILE="${INFILE}.nc"
@@ -19,6 +31,7 @@ do
     else
         echo "converting {$INFILE}"
         python -m um2netcdf4 $INFILE $OUTFILE
+        if $delete; then rm $INFILE; fi;
     fi
     
 done
