@@ -20,8 +20,6 @@ while getopts ":d" opt; do
 done
 shift $((OPTIND-1))
 
-echo $delete
-
 for INFILE in archive/*/atmosphere/*a.p{e,a}+([0-z])
 do
     OUTFILE="${INFILE}.nc"
