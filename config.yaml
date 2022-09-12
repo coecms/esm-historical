@@ -58,6 +58,9 @@ calendar:
 # Increase to run multiple years in a single submission
 runspersub: 1
 
+collate:
+    enable: false
+
 userscripts:
     # Setup land use changes
     setup: ./scripts/pre.sh work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc
