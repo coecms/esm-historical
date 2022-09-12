@@ -6,6 +6,10 @@ walltime: 1:40:00
 laboratory: access-esm
 model: access
 
+storage:
+    gdata:
+        - tm70
+
 submodels:
     - name: atmosphere
       model: um
