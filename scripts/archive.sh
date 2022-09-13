@@ -4,20 +4,16 @@ source  /etc/profile.d/modules.sh
 set -a
 
 module purge
-module load pbs
 module use /g/data/hh5/public/modules
 module use ~access/modules
-module load cdo
-module load nco
 module load pythonlib/um2netcdf4/2.0
-module load conda/analysis3
 
 # set the environment variables for ACCESS-Archiver
 loc_exp=${PWD##*/}
 subdaily=false
 access_version=esmpayu
 arch_dir=/g/data/$PROJECT/$USER/archive/access-esm
-base_dir=/scratch/$PROJECT/$USER/access-esm/archive
+base_dir=$(readlink archive)
 comp_proj=$PROJECT
 here=/g/data/tm70/kr4383/ACCESS-Archiver 
 
@@ -26,11 +22,11 @@ zonal=false
 convert_unknown=false
 ncexists=false
 arch_grp=$PROJECT
-UMDIR=/projects/access/umdir
+UMDIR=~access/umdir
 
 # setup dircetories
+rm -rf $here/tmp/$loc_exp
 mkdir -p $here/tmp/$loc_exp
-rm -f $here/tmp/$loc_exp/*
 mkdir -p $arch_dir/$loc_exp/{history/atm/netCDF,restart/atm}
 
 # run access archiving scripts
