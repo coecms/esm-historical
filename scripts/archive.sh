@@ -13,7 +13,8 @@ loc_exp=${PWD##*/}
 subdaily=false
 access_version=esmpayu
 arch_dir=/g/data/$PROJECT/$USER/archive/access-esm
-base_dir=$(readlink archive)
+
+base_dir=$(dirname $(readlink archive))
 comp_proj=$PROJECT
 here=/g/data/tm70/kr4383/ACCESS-Archiver 
 
