@@ -6,6 +6,10 @@ walltime: 1:40:00
 laboratory: access-esm
 model: access
 
+storage:
+    gdata:
+        - tm70
+
 submodels:
     - name: atmosphere
       model: um
@@ -36,11 +40,6 @@ submodels:
       input:
         - /g/data/access/payu/access-esm/input/pre-industrial/coupler
 
-collate:
-   exe: /g/data/access/payu/access-esm/bin/mppnccombine
-   restart: true
-   mem: 4GB
-
 restart: /g/data/access/payu/access-esm/restart/pre-industrial
 
 calendar:
@@ -59,9 +58,13 @@ calendar:
 # Increase to run multiple years in a single submission
 runspersub: 1
 
+collate:
+    enable: false
+
 userscripts:
     # Setup land use changes
     setup: ./scripts/pre.sh work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc
+    archive: ./scripts/archive.sh
 
 stacksize: unlimited
 
